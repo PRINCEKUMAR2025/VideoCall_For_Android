@@ -58,6 +58,10 @@ public class Login extends AppCompatActivity {
                     String email=etMail.getText().toString().trim();
                     String password=etPassword.getText().toString().trim();
 
+                    Intent intent=new Intent(Login.this,MainActivity.class);
+                    intent.putExtra("username",email);
+                    startActivity(intent);
+
                     showProgress(true);
                     tvLoad.setText("Logging In.. Please Wait");
 
