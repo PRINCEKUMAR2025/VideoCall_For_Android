@@ -15,7 +15,7 @@ import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationS
 
 public class MainActivity extends AppCompatActivity {
 
-    String edtUsername;
+//    String edtUsername;
     Button btnProceed;
 
     @Override
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String username=getIntent().getStringExtra("username");
-                edtUsername=username;
+//                edtUsername=username;
                 if (!username.isEmpty()){
                         proceedService(username);
                     Intent intent=new Intent(MainActivity.this,CallingActivity.class);

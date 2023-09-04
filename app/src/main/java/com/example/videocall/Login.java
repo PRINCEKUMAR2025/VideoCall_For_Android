@@ -58,12 +58,11 @@ public class Login extends AppCompatActivity {
                     String email=etMail.getText().toString().trim();
                     String password=etPassword.getText().toString().trim();
 
-                    Intent intent=new Intent(Login.this,MainActivity.class);
-                    intent.putExtra("username",email);
-                    startActivity(intent);
+
 
                     showProgress(true);
                     tvLoad.setText("Logging In.. Please Wait");
+
 
                     Backendless.UserService.login(email, password, new AsyncCallback<BackendlessUser>() {
                         @Override
@@ -72,6 +71,9 @@ public class Login extends AppCompatActivity {
                             TestApplication.user=response;
                             Toast.makeText(Login.this, "Logged In Successfully!..", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Login.this,MainActivity.class));
+                            Intent intent=new Intent(Login.this,MainActivity.class);
+                            intent.putExtra("username",email);
+                            startActivity(intent);
                             Login.this.finish();
                         }
 
@@ -81,6 +83,7 @@ public class Login extends AppCompatActivity {
                             showProgress(false);
                         }
                     }, true);
+
                 }
 
             }
