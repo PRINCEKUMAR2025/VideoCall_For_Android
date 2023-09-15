@@ -14,25 +14,20 @@ import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationC
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 
 public class MainActivity extends AppCompatActivity {
-
-//    String edtUsername;
     Button btnProceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        edtUsername=findViewById(R.id.edtUsername);
         btnProceed=findViewById(R.id.btnProceed);
 
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username=getIntent().getStringExtra("username");
-//                edtUsername=username;
+                String username=TestApplication.user.getEmail();
                 if (!username.isEmpty()){
-                        proceedService(username);
+                    proceedService(username);
                     Intent intent=new Intent(MainActivity.this,CallingActivity.class);
                     intent.putExtra("username",username);
                     startActivity(intent);
